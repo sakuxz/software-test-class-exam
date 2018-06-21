@@ -1,0 +1,18 @@
+language: c++
+
+sudo: false
+
+compiler:
+  - g++
+
+script: 
+  - make
+  - make test
+  - make gcov
+
+env:
+  global:
+    - CODECOV_TOKEN=
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
